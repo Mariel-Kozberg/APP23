@@ -17,11 +17,9 @@ library("ggplot2")
 rm(list=ls())
 
 # for pulsatility_d: 
-#setwd("/Volumes/mgkdata/APP23/analysis/Pulsatility_Overall")
-setwd("/Users/marielkozberg/Library/CloudStorage/OneDrive-Personal/MKonedrive/CAAresearch/APP23_paper_forsubmission/data_sheets/")
-dat<-read.xlsx("Pulsatility_Rinputs_new.xlsx",1,header=TRUE)
+setwd("")
+dat<-read.xlsx("Pulsatility_Rinputs.xlsx",1,header=TRUE)
 Pulsatility_log = log10(as.numeric(dat$Amplitude_corrected)) # log transform to correct for heteroskedasticity of data 
-Pulsatility2 = as.numeric(dat$Amplitude_corrected)
 Age_months = (dat$Age)*12/365.25 
 
 # null model 
