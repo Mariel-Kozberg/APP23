@@ -16,6 +16,11 @@ qqnorm(residuals(M1))
 qqline(residuals(M1))
 
 #Get stats for each fixed effect
-summary(new_null_model)       #estimates, p-values
-summ(new_null_model)          #R^2
-confint(new_null_model)       #confidence intervals for estimates
+summary(M1)       #estimates, p-values, AIC, BIC, log likelihoods 
+summ(M1)          #R^2
+confint(M1)       #confidence intervals for estimates
+
+#Compare to null model (null model = M0, model of interest = M1) 
+#Test significance of model
+#chi-sq and p-val
+anova(M0,M1) 
