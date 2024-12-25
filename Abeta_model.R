@@ -14,7 +14,7 @@ library("ggplot2")
 
 # load data 
 rm(list=ls())
-setwd("/Users/marielkozberg/Library/CloudStorage/OneDrive-Personal/MKonedrive/CAAresearch/APP23_paper_forsubmission/data_sheets/")
+setwd("")
 dat<-read.xlsx("Abeta_density.xlsx",1,header=TRUE)
 Age_months = (dat$Age)*12/365.25 
 
