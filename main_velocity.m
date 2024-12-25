@@ -5,16 +5,16 @@ total_time = 2.5; % Total time of scan in seconds
 num_points = 10000; % Total number of scans
 fit_status = 0; % Display fitting
 
-mouse = 'RFC1184'; 
-sessions = [1 2 3]; 
-homedir = '/users/marielkozberg/Documents/code/';
+mouse = ''; % enter mouse name 
+sessions = []; % enter all sessions (e.g. 1:3) 
+homedir = ''; % set home directory 
 cd(homedir); 
 
 for j = 1:length(sessions)
 
-loaddir = ['/Volumes/MGH-VANVELUWLAB/Eugene/ROCK/Olympus/' mouse '_' num2str(sessions(j)) '/'];
-savedir = ['/Volumes/MGH-VANVELUWLAB/Eugene/ROCK/Olympus/' mouse '_' num2str(sessions(j)) '/'];
-vessels = [1:2]; % :20]; % which vessels you want to analyze 
+loaddir = ['']; % set loading directory 
+savedir = ['']; % set save directory 
+vessels = []; % chose which vessels you want to analyze (e.g. 1:10) 
 
 for i = 1:size(vessels,2)
    % vessel = char(vessels(i)); % for S191F2 session 1 and 2 
