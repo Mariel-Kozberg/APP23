@@ -1,14 +1,14 @@
 # APP23
-# Mariel Kozberg
-# 12/25/2024 
+Mariel Kozberg
+12/25/2024 
 
-# Vasomotion 
+Amyloid-beta coverage  
 
-# Diameter
+Diameter
 
-# Red blood cell (RBC) velocity 
+Red blood cell (RBC) velocity 
 
-# Vasomotion
+Vasomotion
 
-# Pulsatility 
+Pulsatility 
 
