@@ -18,8 +18,7 @@ library("ggplot2")
 # Abeta = vascular amyloid beta coverage across field of view 
 # Vasomotion_microns = max amplitude of vasomotion peak in microns 
 
-#setwd("/Volumes/mgkdata/APP23/analysis/Vasomotion_Overall") # working directory 
-setwd("/Users/marielkozberg/Library/CloudStorage/OneDrive-Personal/MKonedrive/CAAresearch/APP23_paper_forsubmission/data_sheets/")
+setwd("")
 
 dat<-read.xlsx("Vasomotion_Rinput.xlsx",1,header=TRUE) # data set input 
 Vasomotion_log = log10(dat$Vasomotion_microns) 
