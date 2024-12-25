@@ -21,6 +21,6 @@ Vasomotion uses the following code:
 - Outputs: 
 
 Pulsatility uses the following code: 
-- pusatility_d.m
+- linescan_d.m --> use these outputs for pusatility_d.m
 - Inputs:
 - Outputs: 
