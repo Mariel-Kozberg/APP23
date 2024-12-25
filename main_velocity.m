@@ -1,4 +1,6 @@
 clear all; close all; 
+% inputs: raw line scan data from 2-photon (parallel to vessel wall in order to detect RBC velocity) 
+% outputs: timecourses of RBC velocity and saved jpegs for a visual check 
 
 pixel_size = 0.3310; % Number of microns/pixel
 total_time = 2.5; % Total time of scan in seconds
