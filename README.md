@@ -6,9 +6,12 @@ Amyloid-beta coverage
 
 Diameter
 
-Red blood cell (RBC) velocity 
 
-Vasomotion
+Red blood cell (RBC) velocity uses the following code: 
+- main_velocity (calls GetVesselVelocity.m) 
+
+Vasomotion uses the following code: 
+- vasomotion.m (calls ROIselect.m) 
 
 Pulsatility 
 
