@@ -18,9 +18,8 @@ library("ggplot2")
 rm(list=ls())
 
 # for pulsatility_d: 
-# setwd("/Volumes/mgkdata/APP23/analysis/Pulsatility_Overall")
-setwd("/Users/marielkozberg/Library/CloudStorage/OneDrive-Personal/MKonedrive/CAAresearch/APP23_paper_forsubmission/data_sheets/")
-dat<-read.xlsx("Pulsatility_Rinputs_new.xlsx",2,header=TRUE)
+setwd("")
+dat<-read.xlsx("Pulsatility_Rinputs.xlsx",2,header=TRUE)
 Age_months <- (dat$Age)*12/365.25 
 
 # create a null model 
