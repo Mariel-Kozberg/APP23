@@ -18,8 +18,7 @@ library("ggplot2")
 rm(list=ls())
 
 # for diameter: 
-#setwd("/Volumes/mgkdata/APP23/analysis/Diameter_Overall")
-setwd("/Users/marielkozberg/Library/CloudStorage/OneDrive-Personal/MKonedrive/CAAresearch/APP23_paper_forsubmission/data_sheets/")
+setwd("")
 dat<-read.xlsx("Diameter_Rinputs.xlsx",2,header=TRUE)
 Age_months = (dat$Age)*12/365.25  
 
