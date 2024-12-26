@@ -110,33 +110,51 @@ cd(savedir);
 saveas(h,[filename '_summplot.jpg']);
 save(filename,'FWHM_av','pixel_av'); 
 
-%% fourier analysis 
+%% analysis in the frequency domain 
 
-% convert to frequency domain
+close all; clear variables; 
+mouse = ''; % mouse name 
+session = 1; % session to analyze 
+loaddir = ''; % loading directory 
+homedir = ''; % home directory 
+cd(loaddir); 
+load(filename,'-mat'); 
 
-Fs = 700/300.525; % sampling rate
-T = 300.525; % time in seconds  
-L = 700; 
-P1_all = ones(size(pixel_av,1),L/2+1); 
-for i = 1:size(pixel_av,1) 
+% put in frequency domain 
+T = 300.525; % # of seconds
+L = 700; % # of frames 
+L/T = Fs; 
+f = Fs*(0:(L/2))/L;
+
+for i =1:size(pixel_av,1)
 pixel_f = fft(pixel_av(i,:));
 P2 = abs(pixel_f/L);
 P1 = P2(1:L/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
 f = Fs*(0:(L/2))/L;
-plot(f,P1) 
+pixel_f2 = pixel_f(1:L/2+1);
+psdx = (1/(Fs*L)) * abs(pixel_f2).^2;
+f2 = Fs*(0:L)/L; 
+h = plot(f,P1); hold on; 
 title('Single-Sided Amplitude Spectrum of X(t)')
 xlabel('f (Hz)')
 ylabel('|P1(f)|')
-P1_all(i,:) = P1; 
+axis([0 0.5 0 2])
+saveas(h,[filename '_freq_plot'],'jpg');
+hold off; 
+f_all(:,i) = P1; 
 end 
-axis([0 0.5 0 0.5])
+legend('1','2','3','4','5','6')
 
+% find peak between 0.04 Hz and 0.13 Hz
+[~,find1] = min(abs(f-0.04)); 
+[~,find2] = min(abs(f-0.13));
+[P_max,max_ind] = max(f_all(find1:find2,:)); % from 0.04 to 0.13 
+freq_peak = f(max_ind+find1); 
 
-figure; 
-for i = 1:
-plot(f,P1_all);
-title('Single-Sided Amplitude Spectrum of X(t)')
-xlabel('f (Hz)')
-ylabel('|P1(f)|')
-axis([0 0.5 0 0.5])
+% find area under the curve 0.4 Hz to 0.13 Hz (?) 
+for i = 1:size(f_all,2)
+area(:,i) = trapz(f(find1:find2),f_all(find1:find2,i));
+end 
+
+save([filename '_freqanalysis'],'f_all','f','freq_peak','P_max','area','psd_all'); 
