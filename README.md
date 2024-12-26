@@ -14,7 +14,7 @@ Diameter:
 - Outputs: indices of vessel edges across timeseries (ind1 = left edge, ind2 = right edge)   
 
 Red blood cell (RBC) velocity: 
- (code courtesy of Dr. Steven Hou, MGH) 
+(code courtesy of Dr. Steven Hou, MGH) 
 - main_velocity (calls GetVesselVelocity.m)
 - Inputs: raw "velocity" line scans from 2photon imaging (lines placed parallel to the the edges of the vessel) 
 - Outputs: timeseries of RBC velocity over imaging period, jpg
