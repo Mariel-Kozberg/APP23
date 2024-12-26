@@ -5,7 +5,9 @@
 % outputs (analysis in freq domain below) : 2) max amplitude in the frequency domain (pixels) = P_max, peak frequency (Hz) between 0.04 and 0.13 Hz = P_max
 
 close all; clear variables; 
-% load mouse data set  
+
+
+% load data set:
 mouse = ''; % enter mouse name 
 session = 1; % enter session number 
 loaddir = ''; % enter loading directory 
@@ -18,7 +20,7 @@ frames = 700; % # of frames
 time = 300.535 ; % # of seconds
 
 frameRate = frames/time; 
-pixels = 256; 
+pixels = 256; % # of pixels (e.g. 256 x 256)
 
 data = ones(pixels,pixels,frames); 
 for i = 1:frames
@@ -43,13 +45,13 @@ cd(savedir);
 saveas(figs,[filename '_regions.jpg']);
 cd(homedir); 
 
-%% rotate the vessels - make vertical + calculate FWHM + pixels 
+%% rotate the vessels - make vessel segments vertical and calculate FWHM of vessels + diameter in pixels 
 
 cd(homedir); 
 for f = 1:g
 vessel = data2([round(coor(2,f)):round(coor(2,f)+coor(4,f))],[round(coor(1,f)):round(coor(1,f)+coor(3,f))],:);
 figure; imagesc(vessel(:,:,1)); axis image; 
-title('select edges'); 
+title('select edges'); % use box to select the edges of the vessel (draw smallest rectangle that is able to touch both sides) 
 rorl = input('Is vessel tilted L or R? Reply 1 = L, 2 = R   '); 
 h = imrect; 
 pos = getPosition(h); 
@@ -92,7 +94,7 @@ for t = 1:size(region,2)
 FWHM(t) = ix2 + round(coord(3)/2) - ix1; 
 end 
 
-% calculate in pixels 
+% calculate vessel diameter in pixels 
 region = double(data_in([round(coord(2)):round(coord(2)+coord(4))],[round(coord(1)):round(coord(1)+coord(3))],:)); 
 region_thresh = ones(size(region)); 
 maxregion = double(max(max(region(:,:,1)))); 
@@ -153,7 +155,7 @@ legend('1','2','3','4','5','6')
 % find peak between 0.04 Hz and 0.13 Hz
 [~,find1] = min(abs(f-0.04)); 
 [~,find2] = min(abs(f-0.13));
-[P_max,max_ind] = max(f_all(find1:find2,:)); % from 0.04 to 0.13 
+[P_max,max_ind] = max(f_all(find1:find2,:)); % from 0.04 to 0.13 Hz 
 freq_peak = f(max_ind+find1); 
 
 save([filename '_freqanalysis'],'f_all','f','freq_peak','P_max'); 
