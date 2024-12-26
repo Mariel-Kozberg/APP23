@@ -1,4 +1,8 @@
-%% load files 
+%% vasomotion analysis 
+% Mariel Kozberg, 12/25/24 
+% input: raw timeseries imaging files 
+% outputs: 1) vessel diameter timecourses from selected ROIs as full-width half max (FWMH_av) and in pixels (pixels_av). 
+% outputs (analysis in freq domain below) : 2) max amplitude in the frequency domain (pixels) = P_max, peak frequency (Hz) between 0.04 and 0.13 Hz = P_max
 
 close all; clear variables; 
 % load mouse data set  
@@ -151,10 +155,5 @@ legend('1','2','3','4','5','6')
 [~,find2] = min(abs(f-0.13));
 [P_max,max_ind] = max(f_all(find1:find2,:)); % from 0.04 to 0.13 
 freq_peak = f(max_ind+find1); 
-
-% find area under the curve 0.4 Hz to 0.13 Hz (?) 
-for i = 1:size(f_all,2)
-area(:,i) = trapz(f(find1:find2),f_all(find1:find2,i));
-end 
 
 save([filename '_freqanalysis'],'f_all','f','freq_peak','P_max'); 
