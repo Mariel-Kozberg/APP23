@@ -25,6 +25,6 @@ Vasomotion:
 - Outputs: 1) time domain analysis (1st segment of code): timecourses of vessel segment diameter changes in pixels and as full-width half max (FWHM) 2) frequency analysis (2nd segment of code): analysis of pixel outputs to 1 in the frequency domain, finds vasomotion peak between 0.04 and 0.13 Hz   
 
 Pulsatility: 
-- linescan_d.m (see above) --> use these outputs for pusatility_d.m
+- linescan_d.m (see above) --> use these outputs for pulsatility_d.m
 - Inputs: outputs of linescan_d
 - Outputs: heart rate, average diameter of each vessel, absolute value of area under curve of each vessel as measure of pusatility (units of microns * number of ms), figures demonstrating analysis performed for each vessel for visual check
