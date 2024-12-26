@@ -24,3 +24,5 @@ confint(M1)       #confidence intervals for estimates
 #Test significance of model
 #chi-sq and p-val
 anova(M0,M1) 
+
+# Note, models with singular fits or errors in convergence are not reported in the manuscript (and denoted in this code) 
