@@ -2,7 +2,7 @@ clear all;
 
 addpath(sprintf('%s/export_fig', pwd));
 
-s(1).INPUT_PATH = 'Z:\hymanlab\bacskai\Mari SanchezMico\Macros\Steve\Picking.Plaques.V2.0\Data_example';
-s(1).name_array = {'Image7'};
+s(1).INPUT_PATH = ''; %loading directory 
+s(1).name_array = {''}; %image to analyze 
 
 FindPlaqueArea_CAA(s);
