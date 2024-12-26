@@ -1,5 +1,6 @@
-%% pulsatility analysis 2/17/22 
-% inputs from linescan_d_021722
+%% pulsatility analysis 
+% Mariel Kozberg
+% inputs from linescan_d
 % will output: 
 % HR - heart rate 
 % ave_diam  - average diameter of each vessel
@@ -12,7 +13,7 @@ close all; clear all;
 
 % load diameter data 
 
-mouse = 'S191M1'; % mouse number 
+mouse = ''; % mouse number 
 sessions = 1; % number of imaging sessions 
 numvessels = 1; % number of vessels imaged each session 
 t = 2.5; % number of seconds 
@@ -20,11 +21,7 @@ pixel_size = 0.3310; % change if using different pixel size
 
 for session =  1:sessions 
 % close all;  
-loaddir = ['/Users/marielkozberg/Library/CloudStorage/OneDrive-Personal/MKonedrive/CAAresearch/APP23_2photon_analysis/backups/analysis/S191M1/S191M1_1_diametersubtr/']; 
-% loaddir = ['/Volumes/mgkdata/APP23/analysis/' mouse '/' mouse '_' num2str(session) '_diametersubtr'];
-% mkdir(['/Volumes/mgkdata/APP23/analysis/' mouse '/' mouse '_' num2str(session) '/pulsatility/']);
-% savedir = ['/Volumes/mgkdata/APP23/analysis/' mouse '/' mouse '_' num2str(session) '/pulsatility/'];
-
+loaddir = ['']; %loading directory  
 
 cd(loaddir); 
 
