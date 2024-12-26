@@ -1,4 +1,5 @@
-%% calculate vessel diameter 
+%% calculate vessel diameter from linescan data 
+% Mariel Kozberg 
 % inputs: raw 2-photon linescan data collected perpendicular to the vessel in order to measure vessel diameter 
 % outputs: indices of edges of blood vessel over timecourse (ind1 = left, ind2 = right) 
 
@@ -8,9 +9,8 @@ mouse = ''; % input mouse #
 session = 1; % select imaging session 
 loaddir = ['']; % select loading directory 
 homedir = ''; % select home directory 
-cd(['/Volumes/mgkdata/APP23/analysis/' mouse '/' mouse '_' num2str(session)]) 
-mkdir(['/Volumes/mgkdata/APP23/analysis/' mouse '/' mouse '_' num2str(session) '_diametersubtr']);
-savedir = ['/Volumes/mgkdata/APP23/analysis/' mouse '/' mouse '_' num2str(session) '_diametersubtr'];
+cd(loaddir)) 
+savedir = ['']; % save directory 
 
 for v = 1:5; % select which vessels to analyze 
 vessel = v; 
@@ -23,8 +23,8 @@ t =  2.5; % seconds
 fr = lines/t; 
 time = linspace(1/fr,2.5,lines); 
 
-linescan_1 = imread(['s_C001.tif']); % color 1 - methoxy 
-linescan_2 = imread(['s_C002.tif']); % color 2 - FITC 
+linescan_1 = imread(['s_C001.tif']); % color 1 - methoxy (amyloid-beta channel) 
+linescan_2 = imread(['s_C002.tif']); % color 2 - FITC (vessel channel) 
 
 linescan_2c = linescan_2- linescan_1; % subtract methoxy from FITC channel 
 
