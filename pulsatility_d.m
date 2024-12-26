@@ -3,6 +3,7 @@
 % inputs from linescan_d
 % will output: 
 % HR - heart rate 
+% fmax - amplitude in freq domain at HR freq 
 % ave_diam  - average diameter of each vessel
 % int_filt_diam - absolute value of area under curve of each vessel (units of microns * number of ms)
 % PSD - power spectral density max 
@@ -89,7 +90,6 @@ ax.YAxis.FontSize = 15;
 ax.YAxis.Color = 'k'; 
 axis([0 100 0 0.15])
 
-
 %% take abs value of integral of diameter (um) vs time (ms) plot 
 
 ave_diam = mean(diam_ms(1000:end-1000)); 
@@ -122,15 +122,16 @@ ylabel('Change in vessel diameter (microns)');
 pos_area = sum(filt_diam_zero(filt_diam_zero>0)); % microns*2.5s 
 neg_area = sum(filt_diam_zero(filt_diam_zero<0)); 
 
- 
 int_filt_diam = (pos_area + abs(neg_area))*1000*t/size(ind1,2); % microns*ms
 
 ave_diam = mean(diam_ms); 
  save 
-%cd(savedir); 
-%saveas(h,['LSD' num2str(vessel) '_pulsatility'],'jpg');
-%saveas(l,['LSD' num2str(vessel) '_HR'],'jpg');
-%save(['LSD' num2str(vessel) '_pulsatility'],'HR','ave_diam','int_filt_diam','PSD','PSDind'); 
+
+cd(savedir); 
+saveas(h,['LSD' num2str(vessel) '_pulsatility'],'jpg');
+saveas(l,['LSD' num2str(vessel) '_HR'],'jpg');
+save(['LSD' num2str(vessel) '_pulsatility'],'HR','fmax','ave_diam','int_filt_diam'); 
+
     else 
     end 
 end 
