@@ -27,4 +27,4 @@ Vasomotion uses the following code:
 Pulsatility uses the following code: 
 - linescan_d.m (see above) --> use these outputs for pusatility_d.m
 - Inputs: 
-- Outputs: 
+- Outputs: heart rate, average diameter of each vessel, absolute value of area under curve of each vessel as measure of pusatility (units of microns * number of ms), figures demonstrating analysis performed for each vessel for visual check
