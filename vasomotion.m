@@ -157,4 +157,4 @@ for i = 1:size(f_all,2)
 area(:,i) = trapz(f(find1:find2),f_all(find1:find2,i));
 end 
 
-save([filename '_freqanalysis'],'f_all','f','freq_peak','P_max','area','psd_all'); 
+save([filename '_freqanalysis'],'f_all','f','freq_peak','P_max'); 
