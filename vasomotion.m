@@ -1,7 +1,7 @@
 %% vasomotion analysis 
 % Mariel Kozberg, 12/25/24 
 % input: raw timeseries imaging files 
-% outputs: 1) vessel diameter timecourses from selected ROIs as full-width half max (FWMH_av) and in pixels (pixels_av). 
+% outputs: 1) vessel diameter timecourses from selected ROIs as full-width half max (FWMH_av) and in pixels (pixels_av)
 % outputs (analysis in freq domain below) : 2) max amplitude in the frequency domain (pixels) = P_max, peak frequency (Hz) between 0.04 and 0.13 Hz = P_max
 
 close all; clear variables; 
