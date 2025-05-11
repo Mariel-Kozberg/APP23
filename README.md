@@ -1,5 +1,5 @@
 # APP23
-Mariel Kozberg
+Mariel Kozberg and Leon Munting
 5/11/2025
 
 For code for analysis of raw 2-photon imaging files, see MATLAB_APP23 folder 
