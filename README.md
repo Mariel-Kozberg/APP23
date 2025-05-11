@@ -1,4 +1,5 @@
-MRI/ Leon Munting
+MRI Analysis
+Code by Leon Munting 
 5/11/2025
 
 PlotAPP23ASLdata.m – main script that plots Figures 4-6 of the manuscript
